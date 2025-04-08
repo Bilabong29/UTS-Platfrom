@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>INFORMASI PEGAWAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            margin: 20px 0;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 8px;
+            vertical-align: top;
+        }
+        input[type="text"],
+        input[type="date"],
+        textarea {
+            width: 100%;
+            padding: 6px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+        input[disabled],
+        textarea[readonly] {
+            color: #555;
+        }
+        label {
+            display: block;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>INFORMASI PEGAWAI</h1>
+
+    <form>
+        <table>
+            <tr>
+                <td><label for="Kode_Pegawai">NIP</label></td>
+                <td><input type="text" id="Kode_Pegawai" value="<?php echo isset($_GET['Kode_Pegawai']) ? $_GET['Kode_Pegawai'] : ''; ?>" readonly></td>
+            </tr>
+            <tr>
+                <td><label for="Nama_Pegawai">Nama</label></td>
+                <td><input type="text" id="Nama_Pegawai" value="<?php echo isset($_GET['Nama_Pegawai']) ? $_GET['Nama_Pegawai'] : ''; ?>" readonly></td>
+            </tr>
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>
+                    <input type="radio" name="sts" value="Pria"
+                        <?php echo (isset($_GET['sts']) && $_GET['sts'] == 'Pria') ? 'checked' : ''; ?> disabled> Pria
+                    <input type="radio" name="sts" value="Wanita"
+                        <?php echo (isset($_GET['sts']) && $_GET['sts'] == 'Wanita') ? 'checked' : ''; ?> disabled> Wanita
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Tanggal_Lahir">Tanggal Lahir</label></td>
+                <td><input type="date" id="Tanggal_Lahir" value="<?php echo isset($_GET['Tanggal_Lahir']) ? $_GET['Tanggal_Lahir'] : ''; ?>" readonly></td>
+            </tr>
+            <tr>
+                <td>Hobi</td>
+                <td>
+                    <?php
+                        $hobiList = ["Olahraga", "Baca", "Seni Musik", "Jalan-jalan", "Seni Gambar"];
+                        foreach ($hobiList as $hobi) {
+                            $checked = (isset($_GET['hobi']) && in_array($hobi, $_GET['hobi'])) ? 'checked' : '';
+                            echo "<label><input type='checkbox' value='$hobi' $checked disabled> $hobi</label>";
+                        }
+                    ?>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="Alamat">Alamat</label></td>
+                <td>
+                    <textarea id="Alamat" rows="5" readonly><?php echo isset($_GET['Alamat']) ? $_GET['Alamat'] : ''; ?></textarea>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
