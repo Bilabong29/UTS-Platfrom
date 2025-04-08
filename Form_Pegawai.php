@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
      <title>INFORMASI PEGAWAI</title>
 </head>
-
 <body>
      <h1>INFORMASI PEGAWAI</h1>
      <form method="get" action="daftar_pegawai.php">
@@ -35,17 +33,17 @@
                          <input type="checkbox" name="hobi[]" value="Baca" <?php echo (isset($_GET['hobi']) && in_array('Baca', $_GET['hobi'])) ? 'checked' : ''; ?>> Baca
                          <input type="checkbox" name="hobi[]" value="Seni Musik" <?php echo (isset($_GET['hobi']) && in_array('Seni Musik', $_GET['hobi'])) ? 'checked' : ''; ?>> Seni Musik
                          <input type="checkbox" name="hobi[]" value="Jalan-jalan" <?php echo (isset($_GET['hobi']) && in_array('Jalan-jalan', $_GET['hobi'])) ? 'checked' : ''; ?>> Jalan-jalan
-                         <input type="checkbox" name="hobi[]" value="Sein Gambar" <?php echo (isset($_GET['hobi']) && in_array('Seni Gambar', $_GET['hobi'])) ? 'checked' : ''; ?>> Seni Gambar
+                         <input type="checkbox" name="hobi[]" value="Seni Gambar" <?php echo (isset($_GET['hobi']) && in_array('Seni Gambar', $_GET['hobi'])) ? 'checked' : ''; ?>> Seni Gambar
                     </td>
                </tr>
                <tr>
                     <td>Alamat</td>
-                    //readonly
-                    <td><textarea name="Alamat" rows="5" cols="40"><?php echo isset($_GET['Alamat']) ? $_GET['Alamat'] : ''; ?></textarea></td>
+                    <td><textarea name="Alamat" rows="5" cols="40" readonly><?php echo isset($_GET['Alamat']) ? $_GET['Alamat'] : ''; ?></textarea></td>
                </tr>
           </table>
           <br>
           <button type="submit" name="batal" value="batal">Batal</button>
      </form>
-
+</body>
 </html>
+
